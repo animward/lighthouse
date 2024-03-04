@@ -14,7 +14,22 @@
  */
 
 const whatToDoForLunch = function(hungry, availableTime) {
-  console.log("I don't know what to do!");
+  if (hungry) {
+    if (availableTime <= 15){
+      console.log("Grab a quick snack, maybe a cliff bar?");
+    } else if (availableTime >=20 && availableTime < 30) {
+      console.log("Throw something in the microwave!");
+    } else if (availableTime = 30) {
+      console.log("Make yourself a nice meal!");
+    } else if (availableTime >=50) {
+      console.log("Go grab some takeout!");
+    }  else if (availableTime < 15) {
+      console.log("Complain to your supervisor about the small lunch break.");
+    }
+  } else {
+    console.log("No time, keep working.");
+  }
+
 }
 
 
