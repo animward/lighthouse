@@ -17,6 +17,8 @@ const eqArrays = function(arr1, arr2) {
     for (let i = 0; i < arr1.length; i++) {
       if (arr1[i] !== arr2[i]) {
         return false;
+
+        break;
       }
     }
   
@@ -32,3 +34,6 @@ const eqArrays = function(arr1, arr2) {
   assertEqual(eqArrays([1, 2, 3], [1, 2, 3, 4]), false); // Should pass
   assertEqual(eqArrays(["a", "b", "c"], ["a", "b", "c"]), true); // Should pass
   assertEqual(eqArrays(["a", "b", "c"], ["a", "b", "C"]), false); // Should pass
+  assertEqual(eqArrays([null, undefined, "hello"], [null, undefined, "hello"]), true); // Should pass
+  assertEqual(eqArrays([1, 2, 3], [1, 2, 3, undefined]), false); // Should pass
+  assertEqual(eqArrays(null, [1, 2, 3]), false); // Should pass
