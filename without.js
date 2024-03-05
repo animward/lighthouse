@@ -1,9 +1,15 @@
 // FUNCTION IMPLEMENTATION
 const without = function(source, itemsToRemove) {
-  // Use filter to create a new array with elements not present in itemsToRemove
-  return source.filter(element => !itemsToRemove.includes(element));
-};
+  const result = [];
 
+  for (const element of source) {
+    if (!itemsToRemove.includes(element)) {
+      result.push(element);
+    }
+  }
+
+  return result;
+};
 const assertArraysEqual = function(arr1, arr2) {
   if (eqArrays(arr1, arr2)) {
     console.log("Assertion Passed: Arrays are equal");
