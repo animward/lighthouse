@@ -1,4 +1,9 @@
 // FUNCTION IMPLEMENTATION
+const without = function(source, itemsToRemove) {
+  // Use filter to create a new array with elements not present in itemsToRemove
+  return source.filter(element => !itemsToRemove.includes(element));
+};
+
 const assertArraysEqual = function(arr1, arr2) {
   if (eqArrays(arr1, arr2)) {
     console.log("Assertion Passed: Arrays are equal");
@@ -18,18 +23,29 @@ const eqArrays = function(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
     if (arr1[i] !== arr2[i]) {
       return false;
-      // Use break to exit the loop when an unequal pair is found
-      break;
     }
   }
 
   return true;
 };
 
-// Example usage:
-const array1 = [1, 2, 3];
-const array2 = [1, 2, 3];
-const array3 = [3, 2, 1];
+// TEST CASES
+const testArray1 = [1, 2, 3];
+const testArray2 = ["1", "2", "3"];
+const testArray3 = ["hello", "world", "lighthouse"];
 
-assertArraysEqual(array1, array2); // Should pass
-assertArraysEqual(array1, array3); // Should fail
+// Test Case 1
+const result1 = without(testArray1, [1]);
+assertArraysEqual(result1, [2, 3]); // Should pass
+
+// Test Case 2
+const result2 = without(testArray2, [1, 2, "3"]);
+assertArraysEqual(result2, ["1", "2"]); // Should pass
+
+// Test Case 3
+const result3 = without(testArray3, ["lighthouse"]);
+assertArraysEqual(result3, ["hello", "world"]); // Should pass
+
+// Test Case 4 (Original array should not be modified)
+without(testArray3, ["lighthouse"]);
+assertArraysEqual(testArray3, ["hello", "world", "lighthouse"]); // Should pass
