@@ -9,7 +9,6 @@ const eqArrays = function(arr1, arr2) {
     for (let i = 0; i < arr1.length; i++) {
       if (arr1[i] !== arr2[i]) {
         return false;
-        // Use break to exit the loop when an unequal pair is found
       }
     }
   
@@ -18,12 +17,12 @@ const eqArrays = function(arr1, arr2) {
   
 const assertArraysEqual = function(arr1, arr2){
     if (eqArrays(arr1, arr2)) {
-    console.log("Assertion Passed: Arrays are equal");
+    console.log(`Assertion Passed: ${arr1} === ${arr2}`);
   } else {
-    console.log("Assertion Failed: Arrays are not equal");
+    console.log(`Assertion Failed: ${arr1} !== ${arr2}`);
   }
 };
-  
+
   // ACTUAL FUNCTION
   const middle = function(array) {
     const length = array.length;
