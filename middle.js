@@ -10,7 +10,6 @@ const eqArrays = function(arr1, arr2) {
       if (arr1[i] !== arr2[i]) {
         return false;
         // Use break to exit the loop when an unequal pair is found
-        break;
       }
     }
   
