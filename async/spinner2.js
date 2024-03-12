@@ -1,6 +1,6 @@
 // THIS WILL LEAVE YOU IN AN ENDLESS LOOP BE WARNED
 // implement array
-const spinnerFrames = ['|', '/', '-', '\\', '|', '-'];
+const spinnerFrames = ['\x1b[95m|\x1b[95m', '/', '-', '\\', '|', '-'];
 
 function animate(index) {
     const frame = spinnerFrames[index % spinnerFrames.length];
