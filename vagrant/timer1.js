@@ -30,7 +30,19 @@ function getTimerDuration(timerHandler) {
     });
 }
 function startTimer(duration) {
-    console.log(`\nOkay, ${duration} second countdown starting now!`);
+    console.log(`\nOkay, ${duration} second countdown starting now!\n`);
+
+    function countdown(timeLeft) {
+        if (timeLeft > 0) {
+            process.stdout.write(`\r${timeLeft} seconds remaining...`)
+            setTimeout(() => {
+                countdown(timeLeft - 1);
+            }, 1000);
+        } else {
+            console.log("\nCountdown complete!");
+        }
+    }
+    countdown(duration);
 }
 
 getTimerDuration(startTimer);
