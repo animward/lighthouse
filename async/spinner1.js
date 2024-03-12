@@ -15,4 +15,12 @@ setTimeout(() => {
   process.stdout.write('\r\\   '); 
 }, 700);
 
+setTimeout(() => {
+  process.stdout.write('\r-   ');
+}, 900);
+
+setTimeout(() => {
+  process.stdout.write('\r|   ');
+}, 1100);
+
 // ... fill in the rest yourself ...
