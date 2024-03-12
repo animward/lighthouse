@@ -22,3 +22,6 @@ setTimeout(() => {
 setTimeout(() => {
   process.stdout.write('\r|   ');
 }, 1100);
+
+// implement array
+const spinnerFrames = ['|', '/', '-', '\\', '|', '-'];
