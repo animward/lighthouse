@@ -4,7 +4,9 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
-readline.question('What is your name?\n', name => {
-  console.log(`Hello, ${name}!`);
+console.log("⸻TIMER⸻\n")
+
+readline.question('How long do you want your timer to be??\n', time => {
+  console.log(`\nOkay, ${time} countdown starting now!`);
   readline.close();
 });
