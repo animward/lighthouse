@@ -57,6 +57,10 @@ function startCountdown(duration) {
 
 }
 
+function playSound() {
+    require("child_process").exec("powershell.exe [console]::beep(784, 990)");
+}
+
 function startAlarm(numbers) {
     console.log("\nAlarms set:", numbers);
 }
