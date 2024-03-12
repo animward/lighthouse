@@ -8,3 +8,5 @@ function animate(index) {
         animate(index + 1);
     }, 100);
 }
+
+animate(0);
