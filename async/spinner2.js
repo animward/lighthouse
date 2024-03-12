@@ -1,3 +1,4 @@
+// THIS WILL LEAVE YOU IN AN ENDLESS LOOP BE WARNED
 // implement array
 const spinnerFrames = ['|', '/', '-', '\\', '|', '-'];
 
@@ -10,3 +11,5 @@ function animate(index) {
 }
 
 animate(0);
+
+// THIS WILL LEAVE YOU IN AN ENDLESS LOOP BE WARNED
