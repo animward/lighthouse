@@ -2,7 +2,9 @@
 const spinnerFrames = ['|', '/', '-', '\\', '|', '-'];
 
 function animate(index) {
+    const frame = spinnerFrames[index % spinnerFrames.length];
+    process.stdout.write(`\r${frame}    `);
     setTimeout(() => {
-    process.stdout.write('\r|   ');
+        animate(index + 1);
     }, 100);
 }
