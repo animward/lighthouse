@@ -16,6 +16,7 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
+// prompt user for alarms
 function getAlarmNumbers(handler) {
     console.log("⸻SET ALARMS⸻\n");
 
@@ -25,6 +26,7 @@ function getAlarmNumbers(handler) {
     });
 }
 
+// prompt user for timer duration
 function getTimerDuration(numbers, handler) {
     console.log("⸻TIMER⸻\n")
 
@@ -39,18 +41,21 @@ function getTimerDuration(numbers, handler) {
     });
 }
 
-function startCountdown(duration) {
+function startCountdown(duration, numbers) {
     console.log(`\nCountdown starting now!\n`);
 
     function countdown(timeLeft) {
         if (timeLeft > 0) {
-            process.stdout.write(`\r${timeLeft} seconds remaining...`)
+            process.stdout.write(`\r${timeLeft} seconds remaining...`);
+            if (numbers.includes(duration - timeLeft)) {
+                playSound(); // plays the alarm sound when input number reached
+                }
             setTimeout(() => {
                 countdown(timeLeft - 1);
             }, 1000);
         } else {
             console.log("\nCountdown complete!");
-            getAlarmNumbers(startAlarm);
+            readline.close();
         }
     }
     countdown(duration);
@@ -65,6 +70,11 @@ function startAlarm(numbers) {
     console.log("\nAlarms set:", numbers);
 }
 
+
+// promt user to set alarms
 getAlarmNumbers(numbers => {
-    getTimerDuration(numbers, startCountdown);
+
+    getTimerDuration(numbers, duration => {
+        startCountdown(duration, numbers);
+    });
 });
